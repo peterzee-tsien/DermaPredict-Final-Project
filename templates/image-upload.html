@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>DermaPredict</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/image-upload.css') }}">
+    </head>
+
+    <body>
+
+        <div id="warning-message" class="content-wrapper row-content row-center">
+            PLEASE CONSULT A DERMAPATHOLOGIST OR A DERMATOLOGIST FOR A PROPER MEDICAL DIAGNOSIS
+        </div>
+
+
+        <div id="form-container" class="content-wrapper column-content column-center flex-gap-40">
+
+            <div id="image-upload-container" class="content-wrapper column-content column-center flex-gap-5">
+                <div>Please provide the necessary imformation below</div>
+                <div>Required field are marked with an asterix (*)</div>
+            </div>
+
+            <div id="form-wrapper" class="content-wrapper column-content column-left flex-gap-20">
+                <form class="content-wrapper column-content column-left flex-gap-20" enctype="multipart/form-data" action="/predict" method="POST">
+                    <div class="content-wrapper row-content flex-gap-10">
+                        <div>Upload an image of the affected area*:</div>
+                        <input type="file" id="myFile" name="file" accept=".jpg,.png,.jpeg">
+                    </div>
+
+                    <div class="content-wrapper row-content flex-gap-10">
+                        <label for="history">Do you have a family history of Melanoma or any type of skin cancer?</label>
+                        <select name="history" id="history">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="content-wrapper row-content flex-gap-10">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age">
+                    </div>
+
+                    <div class="content-wrapper row-content flex-gap-10">
+                        <label for="location">The location of the growth:</label>
+                        <select name="location" id="location">
+                            <option value="scalp">scalp</option>
+                            <option value="ear">ear</option>
+                            <option value="face">face</option>
+                            <option value="back">back</option>
+                            <option value="neck">neck</option>
+                            <option value="trunk">trunk</option>
+                            <option value="chest">chest</option>
+                            <option value="upper extremity">upper extremity</option>
+                            <option value="abdomen">abdomen</option>
+                            <option value="lower extremity">lower extremity</option>
+                            <option value="genital">genital</option>
+                            <option value="unknown">unknown</option>
+                        </select>
+                    </div>
+                </form>
+
+                <div id="submit-btn-wrapper" class="content-wrapper column-content column-center">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
