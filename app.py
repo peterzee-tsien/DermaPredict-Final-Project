@@ -89,7 +89,8 @@ def predict():
             return render_template('error.html')
 
         if file:
-
+            if genetics == 'Yes':
+                genetics = 1
             if sex != 'empty':
                 with open('sex.json', 'r') as sex_file:
                     sex_dict = json.load(sex_file)
